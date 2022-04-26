@@ -12,15 +12,14 @@ library(DT)
 # Import data -------------------------------------------------------------
 
 
-
+df_thoughts_long <- readRDS("df_thoughts_long")
+labels <- readRDS("labels")
 
 
 # App ---------------------------------------------------------------------
 
 
 # Client-side
-readRDS("df_thoughts_long")
-readRDS("labels")
 
 ui <- fluidPage(
   # Application title
@@ -44,8 +43,6 @@ ui <- fluidPage(
 )
 
 # Server-side
-readRDS("df_thoughts_long")
-readRDS("labels")
 
 server <- function(input, output) {
 
