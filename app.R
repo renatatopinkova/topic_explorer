@@ -11,8 +11,6 @@ library(DT)
 
 # Import data -------------------------------------------------------------
 
-readRDS("df_thoughts_long")
-readRDS("labels")
 
 
 
@@ -21,6 +19,9 @@ readRDS("labels")
 
 
 # Client-side
+readRDS("df_thoughts_long")
+readRDS("labels")
+
 ui <- fluidPage(
   # Application title
   titlePanel("Topic explorer"),
@@ -43,6 +44,9 @@ ui <- fluidPage(
 )
 
 # Server-side
+readRDS("df_thoughts_long")
+readRDS("labels")
+
 server <- function(input, output) {
 
   # define table
