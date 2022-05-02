@@ -30,7 +30,7 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("topic_number",
         "Select topic number",
-        choices = seq(1:70)
+        choices = seq(1:90)
       ),
       textOutput("heading")
     ),

@@ -25,12 +25,13 @@ labels <- labelTopics(stmmodel, n = 10)
 # Getting topic texts ---------------------------------------------------
 
 # set number of topics
-topicnr <- 70
+topicnr <- 90
 
 # clean encoding issues 
 stmdata$meta$alltext <- str_replace_all(stmdata$meta$alltext, "â\u0080\u0099", "'")
 stmdata$meta$alltext <- str_replace_all(stmdata$meta$alltext, "&amp;", "&")
 stmdata$meta$alltext <- str_replace_all(stmdata$meta$alltext, "&#x200b;", " ")
+stmdata$meta$alltext <-  str_replace_all(stmdata$meta$alltext, "(http[^ )]*)", "LINK REMOVED")
 
 
 # function for getting example texts to iterate over
@@ -48,12 +49,14 @@ df_thoughts <- as.data.frame(lapply(seq(1:topicnr), get_thoughts))
 #saveRDS(df_thoughts, "df_thoughts")
 
 
+
+
 # Creating Excel workbook -------------------------------------------------
 
 
 
 # load/create empty excel workbook 
-db <- loadWorkbook("topic_examples.xlsx", create = TRUE )
+db <- loadWorkbook("topic_examples_FIN.xlsx", create = TRUE )
 
 # function to iterate over later
 make_excel <- function(i) {
@@ -118,7 +121,7 @@ map(seq_len(topicnr), ~setCellStyle(db, sheet = seq_len(topicnr), row = 1, col =
 
 
 # save the result
-saveWorkbook(db, "topic_examples.xlsx")
+saveWorkbook(db, "topic_examples_FIN.xlsx")
 
 
 
