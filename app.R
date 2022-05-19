@@ -2,6 +2,9 @@
 
 # Load libraries ----------------------------------------------------------
 
+list_of_packages <- c("shiny", "dplyr", "stringr", "DT")
+new_packages <- list_of_packages[!(list_of_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages)) install.packages(new_packages)
 
 library(shiny)
 library(dplyr)
